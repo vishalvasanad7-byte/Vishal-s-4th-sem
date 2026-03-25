@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Upload Notes PDF</title>
+</head>
+
+<body style="font-family:Arial; text-align:center">
+
+<h2>Upload Your Notes PDF</h2>
+
+<input type="file" id="pdfFile" accept="application/pdf">
+<br><br>
+
+<button onclick="uploadFile()">Upload & Share</button>
+
+<p id="link"></p>
+
+<script>
+function uploadFile() {
+    var file = document.getElementById("pdfFile").files[0];
+
+    if(file){
+        var url = URL.createObjectURL(file);
+        document.getElementById("link").innerHTML =
+        "Share this link:<br><a href='"+url+"' target='_blank'>Open PDF</a>";
+    }
+    else{
+        alert("Please select PDF file");
+    }
+}
+</script>
+
+</body>
+</html>
